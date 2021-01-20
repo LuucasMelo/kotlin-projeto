@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.lucas.estudo.presentation.main.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_resultadosFragment"
+            app:destination="@id/resultadosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultadosFragment"
+        android:name="com.lucas.estudo.presentation.resultados.ResultadosFragment"
+        android:label="fragment_resultados"
+        tools:layout="@layout/fragment_resultados" >
+        <action
+            android:id="@+id/action_resultadosFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="com.lucas.estudo.presentation.detalhes.DetalhesFragment"
+        android:label="fragment_detalhes"
+        tools:layout="@layout/fragment_detalhes" >
+        <action
+            android:id="@+id/action_detalhesFragment_to_carrinhoFragment"
+            app:destination="@id/carrinhoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carrinhoFragment"
+        android:name="com.lucas.estudo.presentation.carrinho.CarrinhoFragment"
+        android:label="fragment_carrinho"
+        tools:layout="@layout/fragment_carrinho" />
+    <action android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/mainFragment"/>
+</navigation>
