@@ -7,7 +7,7 @@
     android:background="@color/grey"
     tools:context=".presentation.detalhes.DetalhesFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -89,6 +89,17 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.viewpager2.widget.ViewPager2>
+
             <TextView
                 android:id="@+id/textViewQuantidadeFoto"
                 android:layout_width="wrap_content"
@@ -99,7 +110,6 @@
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/quantidade_fotos"
                 android:fontFamily="serif-monospace"
-                android:text="10 fotos"
                 android:padding="8dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
@@ -110,23 +120,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerProdutos"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.viewpager2.widget.ViewPager2>
-
             <TextView
                 android:id="@+id/textViewNomeProduto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Blocos De Montar 350 Peças Infantil Encaixar"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -141,12 +140,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/black"
-                android:textSize="18dp"
-                android:text="R$  63,50"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewNomeProduto" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/buttonAdicionar"

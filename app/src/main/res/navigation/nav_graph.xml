@@ -39,5 +39,5 @@
     <action android:id="@+id/action_global_mainFragment"
         app:destination="@id/mainFragment"
         app:popUpToInclusive="true"
-        app:popUpTo="@id/mainFragment"/>
+        app:popUpTo="@id/mainFragment"/><action android:id="@+id/action_global_detalhesFragment" app:destination="@id/detalhesFragment"/>
 </navigation>
