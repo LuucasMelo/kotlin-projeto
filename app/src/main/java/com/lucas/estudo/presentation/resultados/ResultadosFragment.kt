@@ -3,19 +3,44 @@ package com.lucas.estudo.presentation.resultados
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.lucas.estudo.R
-import com.lucas.estudo.databinding.FragmentMainBinding
+import com.lucas.estudo.data.repository.MercadoLivreRepository
 import com.lucas.estudo.databinding.FragmentResultadosBinding
+import com.lucas.estudo.presentation.main.fragments.MainAdapter
+
+import com.lucas.estudo.presentation.main.fragments.MainViewModel
 
 class ResultadosFragment : Fragment(R.layout.fragment_resultados) {
+
+    private lateinit var viewModel: ResultadosViewModel
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ResultadoAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentResultadosBinding.bind(view)
 
-        binding.buttonProximo.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_resultadosFragment_to_detalhesFragment)
+        viewModel = ViewModelProvider(this, ResultadosViewModel.ViewModelFactory(MercadoLivreRepository())).get(ResultadosViewModel::class.java)
+
+        recyclerView = binding.recyclerViewResultados.apply {
+            setItemViewCacheSize(50)
+            setHasFixedSize(true)
         }
+
+        viewModel.produtosLiveData.observe(viewLifecycleOwner, Observer { produtos ->
+            produtos.let {
+                recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                adapter = ResultadoAdapter(context, produtos)
+                recyclerView.adapter = adapter
+            }
+        })
+
+        viewModel.getProdutos("Motorola G6")
     }
 }

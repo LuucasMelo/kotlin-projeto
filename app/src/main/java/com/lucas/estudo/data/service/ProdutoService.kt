@@ -9,8 +9,13 @@ import retrofit2.http.Query
 
 interface ProdutoService {
     @GET("sites/MLB/search")
+    fun produtosVendedor(
+            @Query("seller_id") seller_id: String
+            ): Call<ResponseProdutos>
+
+    @GET("sites/MLB/search")
     fun produtos(
-        @Query("seller_id") seller_id: String,
+            @Query("q") query: String
     ): Call<ResponseProdutos>
 
     @GET("items/{ProductID}")
