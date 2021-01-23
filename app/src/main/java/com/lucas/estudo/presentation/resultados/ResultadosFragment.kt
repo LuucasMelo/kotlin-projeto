@@ -21,12 +21,15 @@ class ResultadosFragment : Fragment(R.layout.fragment_resultados) {
     private lateinit var viewModel: ResultadosViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ResultadoAdapter
+    private lateinit var query: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentResultadosBinding.bind(view)
 
         viewModel = ViewModelProvider(this, ResultadosViewModel.ViewModelFactory(MercadoLivreRepository())).get(ResultadosViewModel::class.java)
+        query = arguments?.getString("query")!!
+
 
         recyclerView = binding.recyclerViewResultados.apply {
             setItemViewCacheSize(50)
@@ -41,6 +44,6 @@ class ResultadosFragment : Fragment(R.layout.fragment_resultados) {
             }
         })
 
-        viewModel.getProdutos("Motorola G6")
+        viewModel.getProdutos(query)
     }
 }

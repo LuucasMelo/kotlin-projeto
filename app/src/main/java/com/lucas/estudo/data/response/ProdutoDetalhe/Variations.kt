@@ -1,8 +1,9 @@
 import com.google.gson.annotations.SerializedName
+import java.math.BigInteger
 
 data class Variations (
-		@SerializedName("id") val id : Int,
-		@SerializedName("price") val price : Int,
+		@SerializedName("id") val id : BigInteger,
+		@SerializedName("price") val price : Double,
 		@SerializedName("attribute_combinations") val attribute_combinations : List<Attribute_combinations>,
 		@SerializedName("available_quantity") val available_quantity : Int,
 		@SerializedName("sold_quantity") val sold_quantity : Int,

@@ -32,19 +32,25 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             setHasFixedSize(true)
         }
 
-        binding.buttonNext.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_resultadosFragment)
-        }
-
         viewModel.produtosLiveData.observe(viewLifecycleOwner, Observer { produtos ->
-            produtos.let {
+            produtos?.let {
                 recyclerView.layoutManager = GridLayoutManager(context, 2)
                 adapter = MainAdapter(context, produtos)
                 recyclerView.adapter = adapter
             }
         })
 
-        viewModel.getProdutos()
+        viewModel.viewFlipperLiveData.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.viewFlipperMain.displayedChild = it.first
+
+                it.second?.let { error ->
+                    binding.textViewMainError.text = getString(error)
+                }
+            }
+        })
+
+        viewModel.getProdutosVendedor()
     }
 }
 

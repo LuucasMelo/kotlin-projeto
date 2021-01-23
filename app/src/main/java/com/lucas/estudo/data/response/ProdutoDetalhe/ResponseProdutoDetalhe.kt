@@ -38,8 +38,6 @@ data class ResponseProdutoDetalhe(
 		val warnings : List<String>,
 		@SerializedName("listing_source")
 		val listing_source : String,
-		@SerializedName("variations")
-		val variations : List<Variations>,
 		@SerializedName("status")
 		val status : String,
 		@SerializedName("sub_status")

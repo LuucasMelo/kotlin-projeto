@@ -2,4 +2,9 @@
     <string name="app_name">Resenha Shop</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="descricao">Descrição</string>
+
+    <!--  Mensagens de erro  -->
+    <string name="error_400">Erro nao tratado</string>
+    <string name="error_404">Não encontrado</string>
+    <string name="error_500">Ocorreu uma falha na plataforma Mercado Livre.</string>
 </resources>

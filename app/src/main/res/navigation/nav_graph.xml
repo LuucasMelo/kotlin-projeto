@@ -16,11 +16,14 @@
     <fragment
         android:id="@+id/resultadosFragment"
         android:name="com.lucas.estudo.presentation.resultados.ResultadosFragment"
-        android:label="Resultados"
+        android:label="Resultados: {query}"
         tools:layout="@layout/fragment_resultados">
         <action
             android:id="@+id/action_resultadosFragment_to_detalhesFragment"
             app:destination="@id/detalhesFragment" />
+        <argument
+            android:name="query"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/detalhesFragment"
@@ -43,4 +46,5 @@
         app:destination="@id/mainFragment"
         app:popUpToInclusive="true"
         app:popUpTo="@id/mainFragment"/><action android:id="@+id/action_global_detalhesFragment" app:destination="@id/detalhesFragment"/>
+    <action android:id="@+id/action_global_resultadosFragment" app:destination="@id/resultadosFragment" />
 </navigation>

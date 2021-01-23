@@ -19,14 +19,13 @@ class MercadoLivreRepository: IMercadoLivreRepository {
                         response.body()?.let { produtosCallback.onSuccess(it) }
                     }
                     else -> {
-                        produtosCallback.onError(ErroApi(response.code().toString(), response.message()))
+                        produtosCallback.onError(ErroApi(response.code(), response.message()))
                     }
                 }
             }
 
             override fun onFailure(call: Call<ResponseProdutos>, t: Throwable) {
-                var x = ""
-                produtosCallback.onError(ErroApi("500", t.message!!))
+                produtosCallback.onError(ErroApi(500, t.message!!))
             }
         })
     }
@@ -39,14 +38,13 @@ class MercadoLivreRepository: IMercadoLivreRepository {
                         response.body()?.let { produtosCallback.onSuccess(it) }
                     }
                     else -> {
-                        produtosCallback.onError(ErroApi(response.code().toString(), response.message()))
+                        produtosCallback.onError(ErroApi(response.code(), response.message()))
                     }
                 }
             }
 
             override fun onFailure(call: Call<ResponseProdutos>, t: Throwable) {
-                var x = ""
-                produtosCallback.onError(ErroApi("500", t.message!!))
+                produtosCallback.onError(ErroApi(500, t.message!!))
             }
         })
     }
@@ -59,14 +57,13 @@ class MercadoLivreRepository: IMercadoLivreRepository {
                         response.body()?.let { produtosCallback.onSuccess(it) }
                     }
                     else -> {
-                        produtosCallback.onError(ErroApi(response.code().toString(), response.message()))
+                        produtosCallback.onError(ErroApi(response.code(), response.message()))
                     }
                 }
             }
 
             override fun onFailure(call: Call<ResponseProdutoDetalhe>, t: Throwable) {
-                var x = ""
-                produtosCallback.onError(ErroApi("500", t.message!!))
+                produtosCallback.onError(ErroApi(500, t.message!!))
             }
         })
     }
