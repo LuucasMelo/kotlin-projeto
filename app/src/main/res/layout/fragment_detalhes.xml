@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
-    tools:context=".presentation.detalhes.DetalhesFragment">
+    tools:context=".view.ui.detalhes.DetalhesFragment">
 
     <ViewFlipper
         android:id="@+id/viewFlipperDetalhes"
