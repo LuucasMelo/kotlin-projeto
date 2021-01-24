@@ -45,7 +45,7 @@ class MainAdapter(private val context: Context?, private var produtos: ResponseP
             val options = RequestOptions()
                 .placeholder(R.drawable.giphy)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .error(R.drawable.semimg)
 
             val url =  data.thumbnail.replace("http","https")
@@ -56,7 +56,7 @@ class MainAdapter(private val context: Context?, private var produtos: ResponseP
                 .into(imagem)
 
             nome.text = data.title
-            valor.text = "R$ " + data.price.toString()
+            valor.text = "R$ " + String.format("%.2f", data.price)
 
             cardView.setOnClickListener{
                 val songBundle = Bundle()

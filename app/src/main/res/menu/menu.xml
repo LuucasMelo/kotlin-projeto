@@ -8,4 +8,9 @@
         android:title="Buscar Produto"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/menu_carrinho"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="Carrinho"
+        app:showAsAction="always" />
 </menu>

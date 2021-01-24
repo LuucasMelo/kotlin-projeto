@@ -46,5 +46,5 @@
         app:destination="@id/mainFragment"
         app:popUpToInclusive="true"
         app:popUpTo="@id/mainFragment"/><action android:id="@+id/action_global_detalhesFragment" app:destination="@id/detalhesFragment"/>
-    <action android:id="@+id/action_global_resultadosFragment" app:destination="@id/resultadosFragment" />
+    <action android:id="@+id/action_global_resultadosFragment" app:destination="@id/resultadosFragment" /><action android:id="@+id/action_global_carrinhoFragment" app:destination="@id/carrinhoFragment"/>
 </navigation>

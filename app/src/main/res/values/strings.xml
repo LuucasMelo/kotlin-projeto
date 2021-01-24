@@ -4,7 +4,14 @@
     <string name="descricao">Descrição</string>
 
     <!--  Mensagens de erro  -->
-    <string name="error_400">Erro nao tratado</string>
+    <string name="error_400">Erro não tratado</string>
     <string name="error_404">Não encontrado</string>
-    <string name="error_500">Ocorreu uma falha na plataforma Mercado Livre.</string>
+    <string name="error_500">Ocorreu uma falha na plataforma do Mercado Livre.</string>
+    <string name="carrinho_vazio">Ops o seu carrinho está vazio</string>
+
+    <string name="tentar_novamente">Tentar Novamente</string>
+    <string name="adicionar_ao_carrinho">Adicionar ao carrinho</string>
+    <string name="comprar">Comprar</string>
+    <string name="total">Total</string>
+    <string name="encontrar_produto">Ver produtos</string>
 </resources>

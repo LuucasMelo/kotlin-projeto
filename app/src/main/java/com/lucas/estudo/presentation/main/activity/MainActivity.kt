@@ -2,6 +2,7 @@ package com.lucas.estudo.presentation.main.activity
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 val songBundle = Bundle()
                 songBundle.putString("query", query)
                 navController.navigate(R.id.action_global_resultadosFragment,songBundle)
+                searchView.onActionViewCollapsed()
                 return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -56,5 +58,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_carrinho -> {
+                navController.navigate(R.id.action_global_carrinhoFragment)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

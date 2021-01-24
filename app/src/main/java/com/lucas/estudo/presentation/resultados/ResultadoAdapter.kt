@@ -54,7 +54,7 @@ class ResultadoAdapter(private val context: Context?, private var produtos: Resp
                     .into(imagem)
 
             nome.text = data.title
-            valor.text = "R$ " + data.price.toString()
+            valor.text = "R$ " + String.format("%.2f", data.price)
 
             cardView.setOnClickListener{
                 val songBundle = Bundle()

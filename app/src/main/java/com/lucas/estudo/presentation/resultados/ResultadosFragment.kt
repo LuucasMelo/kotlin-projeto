@@ -44,6 +44,19 @@ class ResultadosFragment : Fragment(R.layout.fragment_resultados) {
             }
         })
 
+        viewModel.viewFlipperLiveData.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.viewFlipperResultados.displayedChild = it.first
+
+                it.second?.let { error ->
+                    binding.mensagem.textViewMessage.text = getText(error)
+                    binding.mensagem.buttonMessage.setOnClickListener {
+                        viewModel.getProdutos(query)
+                    }
+                }
+            }
+        })
+
         viewModel.getProdutos(query)
     }
 }

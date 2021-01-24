@@ -65,5 +65,7 @@ data class ResponseProdutoDetalhe(
 		@SerializedName("health")
 		val health : Double,
 		@SerializedName("catalog_listing")
-		val catalog_listing : Boolean
+		val catalog_listing : Boolean,
+		@SerializedName("secure_thumbnail")
+		val secure_thumbnail : String
 )

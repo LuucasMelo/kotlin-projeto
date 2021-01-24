@@ -8,6 +8,9 @@ import com.lucas.estudo.data.CallbackBase
 import com.lucas.estudo.data.model.ErroApi
 import com.lucas.estudo.data.repository.MercadoLivreRepository
 import com.lucas.estudo.data.response.Produto.ResponseProdutos
+import com.lucas.estudo.presentation.ResultViewFlipper.VIEW_FLIPPER_ERROR
+import com.lucas.estudo.presentation.ResultViewFlipper.VIEW_FLIPPER_SUCCESS
+
 
 class MainViewModel(private val repository: MercadoLivreRepository): ViewModel() {
 
@@ -18,22 +21,24 @@ class MainViewModel(private val repository: MercadoLivreRepository): ViewModel()
         val vendedorIdTeste = "25805772"
 
         repository.getProdutosVendedor(vendedorIdTeste, object : CallbackBase<ResponseProdutos> {
-             override fun onSuccess(result: ResponseProdutos) {
-                 produtosLiveData.value = result
-                 viewFlipperLiveData.value = Pair(VIEW_FLIPPER_SUCCESS, null)
-             }
+            override fun onSuccess(result: ResponseProdutos) {
+                produtosLiveData.value = result
+                viewFlipperLiveData.value = Pair(VIEW_FLIPPER_SUCCESS, null)
+            }
 
-             override fun onError(error: ErroApi) {
-                 when(error.codigo){
-                     400 -> {
-                         viewFlipperLiveData.value = Pair(VIEW_FLIPPER_ERROR, R.string.error_400)
-                     }
-                     500 -> {
-                         viewFlipperLiveData.value = Pair(VIEW_FLIPPER_ERROR, R.string.error_500)
-                     }
-                 }
-             }
-         })
+            override fun onError(error: ErroApi) {
+                when (error.codigo) {
+                    400 -> {
+                        viewFlipperLiveData.value =
+                            Pair(VIEW_FLIPPER_ERROR, R.string.error_400)
+                    }
+                    500 -> {
+                        viewFlipperLiveData.value =
+                            Pair(VIEW_FLIPPER_ERROR, R.string.error_500)
+                    }
+                }
+            }
+        })
     }
 
     class ViewModelFactory(private val dataSource: MercadoLivreRepository) : ViewModelProvider.Factory {
@@ -43,10 +48,5 @@ class MainViewModel(private val repository: MercadoLivreRepository): ViewModel()
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }
-    }
-
-    companion object {
-        private const val VIEW_FLIPPER_SUCCESS = 1
-        private const val VIEW_FLIPPER_ERROR = 2
     }
 }

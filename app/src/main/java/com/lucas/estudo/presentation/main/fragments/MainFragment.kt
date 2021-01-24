@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lucas.estudo.R
 import com.lucas.estudo.data.repository.MercadoLivreRepository
 import com.lucas.estudo.databinding.FragmentMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -45,7 +48,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 binding.viewFlipperMain.displayedChild = it.first
 
                 it.second?.let { error ->
-                    binding.textViewMainError.text = getString(error)
+                    binding.mensagem.textViewMessage.text = getText(error)
+                    binding.mensagem.buttonMessage.setOnClickListener {
+                        viewModel.getProdutosVendedor()
+                    }
                 }
             }
         })
