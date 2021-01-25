@@ -1,5 +1,5 @@
 ### Atenção
-Este repositorio tem como objetivo consumir as APIs públicas do Mercado Livre para estudos.
+Este repositório tem como objetivo consumir as APIs públicas do Mercado Livre.
 
 ### APIs utilizadas
 - https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
