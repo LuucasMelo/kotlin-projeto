@@ -17,3 +17,4 @@ Este repositório tem como objetivo consumir as APIs públicas do Mercado Livre.
 - Material Designer
 - Retrofit
 - Mockito
+- LakeCanary

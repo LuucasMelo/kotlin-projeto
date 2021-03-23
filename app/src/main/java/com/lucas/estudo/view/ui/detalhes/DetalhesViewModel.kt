@@ -26,7 +26,7 @@ class DetalhesViewModel(private val repository: IMercadoLivreRepository): ViewMo
             override fun Success(result: Produto) {
 
                 produtoDetalheLiveData.value = result
-                getProdutoDescricao(productId, result.descricaoId!!)
+                getProdutoDescricao(productId, result.descricaoId)
 
                 viewFlipperLiveData.value =
                     Pair(VIEW_FLIPPER_SUCCESS, null)
